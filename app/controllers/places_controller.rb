@@ -4,8 +4,12 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(
       name: params["name"],
-      place_id: params["place_id"],
-
+      trip_id: params["trip_id"],
+      address: params["address"],
+      city: params["city"],
+      zip_code: params["zip_code"],
+      longitude: params["longitude"],
+      latitude: params["latitude"],
     )
 
     if @place.save
