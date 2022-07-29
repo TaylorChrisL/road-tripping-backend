@@ -1,4 +1,6 @@
 class TripsController < ApplicationController
+  before_action :authenticate_user
+
   def index
     @trips = current_user.trips
     render :index
@@ -7,7 +9,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find_by(id: params["id"])
 
-    if current_user.id = @trip.user_id
+    if current_user.id == @trip.user_id
       render :show
     else
       render json: { message: "You do not have access to this trip" }, status: 406
@@ -17,8 +19,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(
       name: params["name"],
-      price: params["price"],
-      description: params["description"],
+      user_id: current_user.id,
     )
 
     if @trip.save
@@ -32,8 +33,6 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params["id"])
 
     @trip.name = params["name"] || @trip.name
-    @trip.price = params["price"] || @trip.price
-    @trip.description = params["description"] || @trip.description
 
     if @trip.save
       render :show
