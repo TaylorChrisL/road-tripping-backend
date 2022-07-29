@@ -1,0 +1,74 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTkyMTY3NDh9.24MQq6aTEus1KWS8y9JJTOAzVsnZYnWdvp_K2XrTn2o
+
+### User creates
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "first_name": "Test",
+  "last_name": "Name",
+  "email": "test2@test.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "test1@test.com",
+  "password": "password"
+}
+
+### trips Index
+
+GET http://localhost:3000/trips
+Authorization: Bearer {{jwt}}
+
+### trips Show
+
+GET http://localhost:3000/trips/1
+Authorization: Bearer {{jwt}}
+
+### trips create
+
+POST http://localhost:3000/trips
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "name": "There and back again"
+}
+
+### trips Update
+
+PATCH http://localhost:3000/trips/1
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "name": "A hobbit story"
+}
+
+### Places create
+
+POST http://localhost:3000/places
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "name": "Woods",
+  "trip_id": "1",
+  "address": "111 Main St",
+  "city": "San Fran",
+  "zip_code": "93214",
+  "longitude": "22.4",
+  "latitude": "22.4"
+}
+
+### Places Delete
+
+DELETE http://localhost:3000/places/2
+Authorization: Bearer {{jwt}}

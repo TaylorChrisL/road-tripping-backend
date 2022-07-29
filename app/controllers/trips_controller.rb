@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :authenticate_user
+  # before_action :authenticate_user
 
   def index
     @trips = current_user.trips
@@ -18,8 +18,8 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(
-      name: params["name"],
       user_id: current_user.id,
+      name: params["name"],
     )
 
     if @trip.save
