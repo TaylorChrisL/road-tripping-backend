@@ -1,0 +1,6 @@
+@places.map do |place|
+  {
+    id: place.id,
+    url: place_url(place, format: :json)
+  }
+end

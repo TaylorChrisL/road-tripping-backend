@@ -1,0 +1,6 @@
+@trips.map do |trip|
+  {
+    id: trip.id,
+    url: trip_url(trip, format: :json)
+  }
+end
