@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTkyMTY3NDh9.24MQq6aTEus1KWS8y9JJTOAzVsnZYnWdvp_K2XrTn2o
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NTk4MDU3NzJ9.dp5UcDy9wYrhFsG7_FjlGKnFENSdxeIwoMj4-mhSbL4
 
 ### User creates
 
@@ -6,9 +6,9 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "first_name": "Test",
-  "last_name": "Name",
-  "email": "test2@test.com",
+  "first_name": "Amanda",
+  "last_name": "Hale",
+  "email": "A@test.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -18,7 +18,7 @@ POST http://localhost:3000/sessions
 Content-Type: application/json
 
 {
-  "email": "test1@test.com",
+  "email": "A@test.com",
   "password": "password"
 }
 
@@ -29,7 +29,7 @@ Authorization: Bearer {{jwt}}
 
 ### trips Show
 
-GET http://localhost:3000/trips/1
+GET http://localhost:3000/trips/9
 Authorization: Bearer {{jwt}}
 
 ### trips create
@@ -60,7 +60,7 @@ Content-Type: application/json
 
 {
   "name": "Woods",
-  "trip_id": "1",
+  "trip_id": "9",
   "address": "111 Main St",
   "city": "San Fran",
   "zip_code": "93214",
@@ -70,5 +70,5 @@ Content-Type: application/json
 
 ### Places Delete
 
-DELETE http://localhost:3000/places/2
+DELETE http://localhost:3000/places/5
 Authorization: Bearer {{jwt}}
