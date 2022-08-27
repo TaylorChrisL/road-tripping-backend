@@ -1,6 +1,9 @@
 {
   id: @place.id,
   name: @place.name,
-  created_at: @place.created_at,
-  updated_at: @place.updated_at
+  address: @place.address,
+  city: @place.city,
+  zip_code: @place.zip_code,
+  longitude: @place.longitude,
+  latitude: @place.latitude
 }

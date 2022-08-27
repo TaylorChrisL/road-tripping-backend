@@ -1,7 +1,11 @@
 @places.map do |place|
   {
-    id: place.id,
-    name: place.name,
-    url: place_url(place, format: :json)
+  id: place.id,
+  name: place.name,
+  address: place.address,
+  city: place.city,
+  zip_code: place.zip_code,
+  longitude: place.longitude,
+  latitude: place.latitude
   }
 end
