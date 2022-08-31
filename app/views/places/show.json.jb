@@ -4,6 +4,8 @@
   address: @place.address,
   city: @place.city,
   zip_code: @place.zip_code,
+  start_point: @place.start_point,
+  end_point: @place.end_point,
   longitude: @place.longitude,
   latitude: @place.latitude
 }
