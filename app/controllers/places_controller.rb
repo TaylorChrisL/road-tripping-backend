@@ -21,8 +21,16 @@ class PlacesController < ApplicationController
 
   def update
     @place = Place.find_by(id: params["id"])
-    @place.start_point = params["start_point"] || @place.start_point
-    @place.end_point = params["end_point"] || @place.end_point
+    if params["start_point"] == "true"
+      @place.start_point = true
+    elsif params["start_point"] == "false"
+      @place.start_point = false
+    end
+    if params["end_point"] == "true"
+      @place.end_point = true
+    elsif params["end_point"] == "false"
+      @place.end_point = false
+    end
 
     if @place.save
       render template: "places/show"
