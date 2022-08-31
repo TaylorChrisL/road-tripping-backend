@@ -19,6 +19,18 @@ class PlacesController < ApplicationController
     end
   end
 
+  def update
+    @place = Place.find_by(id: params["id"])
+    @place.start_point = params["start_point"] || @place.start_point
+    @place.end_point = params["end_point"] || @place.end_point
+
+    if @place.save
+      render template: "places/show"
+    else
+      render json: { errors: @place.errors.full_messages }, status: 406
+    end
+  end
+
   def destroy
     place = Place.find_by(id: params["id"])
     place.destroy
