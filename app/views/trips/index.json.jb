@@ -1,8 +1,8 @@
 @trips.map do |trip|
   {
     id: trip.id,
-    user_id: trip.user_id,
     name: trip.name,
+    users: trip.users,
     places: trip.places,
     updated_at: trip.updated_at,
     url: trip_url(trip, format: :json)

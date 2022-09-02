@@ -17,11 +17,13 @@ class TripsController < ApplicationController
   end
 
   def create
+    user_trip = UserTrip.new(user_id: current_user.id, owner: true)
     @trip = Trip.new(
-      user_id: current_user.id,
       name: params["name"],
     )
+    user_trip[:trip_id] = @trip.id
 
+    user_trip.save
     if @trip.save
       render :show
     else
