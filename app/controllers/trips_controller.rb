@@ -9,7 +9,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find_by(id: params["id"])
 
-    if current_user.id == @trip.user_id
+    if @trip.users.includes(current_user)
       render :show
     else
       render json: { message: "You do not have access to this trip" }, status: 406
@@ -17,14 +17,15 @@ class TripsController < ApplicationController
   end
 
   def create
-    user_trip = UserTrip.new(user_id: current_user.id, owner: true)
+    user_trip = UserTrip.new(user_id: current_user.id)
     @trip = Trip.new(
       name: params["name"],
+      owner_id: current_user.id
     )
-    user_trip[:trip_id] = @trip.id
 
-    user_trip.save
     if @trip.save
+      user_trip["trip_id"] = @trip.id
+      user_trip.save
       render :show
     else
       render json: { errors: @trip.errors.full_messages }, status: 406

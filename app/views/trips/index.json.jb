@@ -1,6 +1,7 @@
 @trips.map do |trip|
   {
     id: trip.id,
+    owner: trip.owner_id,
     name: trip.name,
     users: trip.users,
     places: trip.places,

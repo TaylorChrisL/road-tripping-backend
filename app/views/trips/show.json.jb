@@ -1,5 +1,6 @@
 {
   id: @trip.id,
+  owner: @trip.owner_id,
   users: @trip.users,
   name: @trip.name,
   places: @trip.places,
