@@ -1,6 +1,4 @@
 class UserTripsController < ApplicationController
-  before_action :authenticate_user
-
   def create
     user = User.find_by(email: params["email"])
     trip = Trip.find_by(id: params["trip_id"])

@@ -48,3 +48,5 @@ end
 
 gem 'jwt'
 gem 'jb'
+
+gem 'pusher'

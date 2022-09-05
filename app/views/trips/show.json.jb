@@ -4,5 +4,6 @@
   users: @trip.users,
   name: @trip.name,
   places: @trip.places,
+  messages: @trip.messages,
   updated_at: @trip.updated_at
 }

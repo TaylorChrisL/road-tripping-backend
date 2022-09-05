@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :trips, defaults: { format: :json }
   resources :places, defaults: { format: :json }
   resources :user_trips, defaults: { format: :json }
+  resources :chat, defaults: { format: :json }
 end
